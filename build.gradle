@@ -1,34 +1,29 @@
-/*
 buildscript {
 	ext {
 		springBootVersion = '2.6.7'
 	}
-	repositories {
-		mavenCentral()
-	}
-
 
 	dependencies {
-		//classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath('se.transmode.gradle:gradle-docker:1.2')
 	}
 }
-
- */
-
 
 plugins {
 	id 'org.springframework.boot' version '2.6.7'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	//id("com.palantir.docker") version "0.22.1"
-	//id("com.palantir.docker-run") version "0.22.1"
 }
+
+apply plugin: 'docker'
+
+
+
 
 group = 'com.naut92.quotes'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
-//project.version = '0.0.1.-H2'
+sourceCompatibility = '1.8'
+project.version = '0.0.1.-H2'
 
 configurations {
 	compileOnly {
@@ -51,7 +46,7 @@ dependencies {
 }
 
 
-/*task buildDocker(type: Docker, dependsOn: build) {
+task buildDocker(type: Docker, dependsOn: build) {
 	project.group = 'quotes'
 	baseImage 'openjdk:8-jdk-alpine'
 	workingDir('/app')
@@ -61,8 +56,6 @@ dependencies {
 	exposePort(8081)
 	push = false
 }
-
- */
 
 
 
