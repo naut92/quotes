@@ -1,0 +1,71 @@
+/*
+buildscript {
+	ext {
+		springBootVersion = '2.6.7'
+	}
+	repositories {
+		mavenCentral()
+	}
+
+
+	dependencies {
+		//classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath('se.transmode.gradle:gradle-docker:1.2')
+	}
+}
+
+ */
+
+
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	//id("com.palantir.docker") version "0.22.1"
+	//id("com.palantir.docker-run") version "0.22.1"
+}
+
+group = 'com.naut92.quotes'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+//project.version = '0.0.1.-H2'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-core'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+
+/*task buildDocker(type: Docker, dependsOn: build) {
+	project.group = 'quotes'
+	baseImage 'openjdk:8-jdk-alpine'
+	workingDir('/app')
+	addFile("build/libs/quotes-${project.version}.jar", './')
+	setEnvironment('SPRING_PROFILES_ACTIVE', 'docker,cors')
+	entryPoint(["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "quotes-${project.version}.jar"])
+	exposePort(8081)
+	push = false
+}
+
+ */
+
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
