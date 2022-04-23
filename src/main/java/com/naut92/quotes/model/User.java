@@ -14,6 +14,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -25,15 +28,15 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User extends AbstractPersistable<Long> {
+public class User extends AbstractPersistable<Long>{
 
-    @Column(name = "firstname")
+    @Column
     String firstname;
 
-    @Column(name = "lastname")
+    @Column
     String lastname;
 
-    @Column(name = "email")
+    @Column
     @UniqueElements(message = "*This email is used")
     String email;
 

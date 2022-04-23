@@ -14,10 +14,11 @@ spring:
       #<------H2-------------->
       platform: h2
       driverClassName: org.h2.Driver
-      url: jdbc:h2:~/data/quotes_db;DB_CLOSE_ON_EXIT=FALSE; #AUTO_SERVER=TRUE
-      #url: jdbc:h2:mem:quotes_db; #DB_CLOSE_DELAY=-1 #DB_CLOSE_DELAY=-1;
+      url: jdbc:h2:./data/quotes_db;DB_CLOSE_ON_EXIT=FALSE; #AUTO_SERVER=TRUE
+      #url: jdbc:h2:mem:quotes_db; DB_CLOSE_DELAY=-1
       #username: sa
       #password:
+      initialization-mode: always
       #<----------End H2----------->
 
 
@@ -26,7 +27,7 @@ spring:
       #properties.hibernate.temp.use_jdbc_metadata_defaults: false
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 
 

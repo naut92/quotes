@@ -12,3 +12,10 @@ The API should allow:
 * addition, view, modification, and deletion of quotes.
 * voting on quotes (either upvote or downvote).
 * view of the top 10 quotes, the details of each quote, and ideally a graph of the evolution of the votes over time.
+
+
+swagger2 doc:
+http://localhost:8081/swagger-ui.html#
+
+Docker image:
+./gradlew build buildDocker

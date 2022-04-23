@@ -10,6 +10,11 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -23,21 +28,22 @@ import java.time.Instant;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Quote extends AbstractPersistable<Long> {
 
-    @Column(name = "text")
+    @Column
     String text;
 
-    @Column(name = "topic")
+    @Column
+    @Enumerated(EnumType.STRING)
     Topic topic;
 
     @Column(name = "like_q")
     Long like;
 
-    @Column(name = "dislike")
+    @Column
     Long dislike;
 
-    @Column(name = "timestamp")
-    Instant timestamp;
-    //String timestamp; //for test only
+    @Column
+    //Instant timestamp;
+    String timestamp; //for test only
 
     @JsonBackReference
     @ManyToOne
