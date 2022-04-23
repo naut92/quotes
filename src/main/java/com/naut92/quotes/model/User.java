@@ -33,7 +33,7 @@ public class User extends AbstractPersistable<Long>{
     String lastname;
 
     @Column
-    @UniqueElements(message = "*This email is used")
+    //@UniqueElements(message = "*This email is used")
     String email;
 
     @JsonManagedReference
