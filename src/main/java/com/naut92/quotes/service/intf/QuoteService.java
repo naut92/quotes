@@ -1,11 +1,12 @@
 package com.naut92.quotes.service.intf;
 
 import com.naut92.quotes.model.Quote;
+import com.naut92.quotes.model.Topic;
 
 import java.util.Collection;
 
 public interface QuoteService {
-    Collection<Quote> getAllQuotesByTopicAndRating();
+    Collection<Long> getAllQuotesByTopicAndRating(Topic topic);
     Collection<Quote> getAllQuotesByUserId(Long id);
     Collection<Quote> getAllQuotesByTopic(String topic);
     Quote createQuote(String topic, Long userId);

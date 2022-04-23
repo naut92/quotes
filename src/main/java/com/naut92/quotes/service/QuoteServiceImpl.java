@@ -1,6 +1,7 @@
 package com.naut92.quotes.service;
 
 import com.naut92.quotes.model.Quote;
+import com.naut92.quotes.model.Topic;
 import com.naut92.quotes.model.User;
 import com.naut92.quotes.repository.QuoteRepository;
 import com.naut92.quotes.repository.UserRepository;
@@ -21,9 +22,9 @@ public class QuoteServiceImpl implements QuoteService {
     }
 
     @Override
-    public Collection<Quote> getAllQuotesByTopicAndRating() {
-        //return repository.findAllByTopicAndRating();
-        return null;
+    public Collection<Long> getAllQuotesByTopicAndRating(Topic topic) {
+        return repository.findAllByTopicAndRating(topic);
+        //return null;
     }
 
     @Override

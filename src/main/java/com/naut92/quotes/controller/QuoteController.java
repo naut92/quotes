@@ -1,6 +1,7 @@
 package com.naut92.quotes.controller;
 
 import com.naut92.quotes.model.Quote;
+import com.naut92.quotes.model.Topic;
 import com.naut92.quotes.model.User;
 import com.naut92.quotes.service.intf.QuoteService;
 import com.naut92.quotes.service.intf.UserService;
@@ -30,9 +31,9 @@ public class QuoteController {
     }
 
     @ApiOperation(value = "Get quotes by rating")
-    @GetMapping("/topic/rating")
-    public ResponseEntity<?> getQuotesByRating() {
-        Collection<Quote> quotes = service.getAllQuotesByTopicAndRating();
+    @GetMapping("/{topic}/rating")
+    public ResponseEntity<?> getQuotesByRating(@PathVariable Topic topic) {
+        Collection<Long> quotes = service.getAllQuotesByTopicAndRating(topic);
         return ResponseEntity.ok().body(quotes);
     }
 
