@@ -61,7 +61,7 @@ public class QuoteController {
 
     @ApiOperation(value = "Delete quote by Id")
     @DeleteMapping("/delete/{quoteId}")
-    public void deleteQuote( @PathVariable Long userId, @PathVariable Long quoteId) {
-        service.deleteQuote(userId, quoteId);
+    public void deleteQuote(@PathVariable Long quoteId) {
+        service.deleteQuote(quoteId);
     }
 }

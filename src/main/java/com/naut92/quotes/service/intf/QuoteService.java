@@ -11,5 +11,5 @@ public interface QuoteService {
     Collection<Quote> getAllQuotesByTopic(String topic);
     Quote createQuote(Long userId, Quote quote);
     Quote updateQuote(Long quotId, Quote quote);
-    void deleteQuote(Long userId, Long quoteId);
+    void deleteQuote(Long quoteId);
 }
