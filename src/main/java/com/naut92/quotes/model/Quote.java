@@ -38,6 +38,8 @@ public class Quote extends AbstractPersistable<Long> {
     @Column
     Long dislike;
 
+    Long rating;
+
     @Column
     Instant timestamp;
 
