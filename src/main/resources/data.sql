@@ -17,7 +17,7 @@ create table users (
      firstname varchar(255),
      lastname varchar(255)
      );
-alter table quotes add constraint FKbwr7u11tqw8jekeijdbngy3ku foreign key (user_id) references users;
+alter table quotes add constraint fk_ref_quotes_id foreign key (user_id) references users;
 
 
 --Users
