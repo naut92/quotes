@@ -13,7 +13,7 @@ spring:
       #<------H2-------------->
       platform: h2
       driverClassName: org.h2.Driver
-      url: jdbc:h2:./data/quotes_db;DB_CLOSE_ON_EXIT=FALSE; #AUTO_SERVER=TRUE
+      url: jdbc:h2:file:./data/quotes_db #jdbc:h2:./data/quotes_db;DB_CLOSE_ON_EXIT=FALSE; #AUTO_SERVER=TRUE
       initialization-mode: always
       #<----------End H2----------->
 
