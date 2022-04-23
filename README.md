@@ -1,4 +1,5 @@
 Spring Boot project
+- Java 11
 - Jpa/Hibernate
 - Lombok
 - Swagger
