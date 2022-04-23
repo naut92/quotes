@@ -17,7 +17,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "Create user")
-    @PostMapping("/{user}")
+    @PostMapping("/user")
     public ResponseEntity<?> createUser(@RequestBody User user) {
         return ResponseEntity.ok().body(service.createUser(user));
     }

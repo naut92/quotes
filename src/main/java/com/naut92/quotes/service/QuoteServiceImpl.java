@@ -53,8 +53,13 @@ public class QuoteServiceImpl implements QuoteService {
     }
 
     @Override
-    public Quote updateQuote(Long userId, Long quoteId) {
-        return null;
+    public Quote updateQuote(Long quotId, Quote quote) {
+        Quote existQuote = repository.getById(quotId);
+        existQuote.setText(quote.getText());
+        existQuote.setLike(quote.getLike());
+        existQuote.setDislike(quote.getDislike());
+        existQuote.setTimestamp(Instant.now());
+        return repository.save(existQuote);
     }
 
     @Override

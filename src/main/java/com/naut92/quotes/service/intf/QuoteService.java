@@ -10,6 +10,6 @@ public interface QuoteService {
     Collection<Quote> getAllQuotesByUserId(Long id);
     Collection<Quote> getAllQuotesByTopic(String topic);
     Quote createQuote(Long userId, Quote quote);
-    Quote updateQuote(Long userId, Long quoteId);
+    Quote updateQuote(Long quotId, Quote quote);
     void deleteQuote(Long userId, Long quoteId);
 }

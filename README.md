@@ -15,7 +15,7 @@ The API should allow:
 
 
 swagger2 doc:
-http://localhost:8081/swagger-ui.html#
+http://localhost:8081/swagger-ui/index.html
 
 Docker image:
 ./gradlew build buildDocker
