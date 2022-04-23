@@ -19,7 +19,7 @@ public class QuoteServiceImpl implements QuoteService {
 
     @Override
     public Collection<Quote> getAllQuotesByRating() {
-        return null;
+        return repository.findAll();
     }
 
     @Override

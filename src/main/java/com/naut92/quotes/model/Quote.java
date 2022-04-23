@@ -19,7 +19,7 @@ import java.time.Instant;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "quote")
+@Table(name = "quotes")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Quote extends AbstractPersistable<Long> {
 
@@ -37,6 +37,7 @@ public class Quote extends AbstractPersistable<Long> {
 
     @Column(name = "timestamp")
     Instant timestamp;
+    //String timestamp; //for test only
 
     @JsonBackReference
     @ManyToOne
