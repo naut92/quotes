@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.CascadeType;
@@ -33,7 +32,6 @@ public class User extends AbstractPersistable<Long>{
     String lastname;
 
     @Column
-    //@UniqueElements(message = "*This email is used")
     String email;
 
     @JsonManagedReference
