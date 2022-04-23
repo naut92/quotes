@@ -2,9 +2,7 @@ package com.naut92.quotes.controller;
 
 import com.naut92.quotes.model.Quote;
 import com.naut92.quotes.model.Topic;
-import com.naut92.quotes.model.User;
 import com.naut92.quotes.service.intf.QuoteService;
-import com.naut92.quotes.service.intf.Rating;
 import com.naut92.quotes.service.intf.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Description;

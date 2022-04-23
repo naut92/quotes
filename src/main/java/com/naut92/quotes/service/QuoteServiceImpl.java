@@ -2,14 +2,11 @@ package com.naut92.quotes.service;
 
 import com.naut92.quotes.model.Quote;
 import com.naut92.quotes.model.Topic;
-import com.naut92.quotes.model.User;
 import com.naut92.quotes.repository.QuoteRepository;
 import com.naut92.quotes.repository.UserRepository;
 import com.naut92.quotes.service.intf.QuoteService;
-import com.naut92.quotes.service.intf.Rating;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
