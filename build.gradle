@@ -52,7 +52,7 @@ task buildDocker(type: Docker, dependsOn: build) {
 	workingDir('/app')
 	addFile("build/libs/quotes-${project.version}.jar", './')
 	setEnvironment('SPRING_PROFILES_ACTIVE', 'docker,cors')
-	entryPoint(["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "quotes-${project.version}.jar"])
+	entryPoint(["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "quotes-app-${project.version}.jar"])
 	exposePort(8081)
 	push = false
 }

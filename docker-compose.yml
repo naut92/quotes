@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  backend:
+    build: .
+    volumes:
+      - .:/code
+    image: local/quotes-app:0.0.1.-H2
+    ports:
+      - "8081:8081"
