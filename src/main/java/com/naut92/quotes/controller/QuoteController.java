@@ -30,22 +30,19 @@ public class QuoteController {
     @ApiOperation(value = "Get quotes by rating(Likes minus Dislike. Best 10")
     @GetMapping("/{topic}/quotes")
     public ResponseEntity<?> getQuotesByRatingBest10(@PathVariable Topic topic) {
-        Collection<Quote> quotes = service.getAllQuotesByTopicAndRatingBest10(topic);
-        return ResponseEntity.ok().body(quotes);
+        return ResponseEntity.ok().body(service.getAllQuotesByTopicAndRatingBest10(topic));
     }
 
     @ApiOperation(value = "Get quotes by user Id")
     @GetMapping("/quotes/{userId}")
     public ResponseEntity<?> getQuotesByUserId(@PathVariable Long userId) {
-        Collection<Quote> quotes = service.getAllQuotesByUserId(userId);
-        return ResponseEntity.ok().body(quotes);
+        return ResponseEntity.ok().body(service.getAllQuotesByUserId(userId));
     }
 
     @ApiOperation(value = "Get all quotes by Topic")
     @GetMapping("/topic/{topic}")
     public ResponseEntity<?> getQuotesByTopic(@PathVariable String topic) {
-        Collection<Quote> quotes = service.getAllQuotesByTopic(topic);
-        return ResponseEntity.ok().body(quotes);
+        return ResponseEntity.ok().body(service.getAllQuotesByTopic(topic));
     }
 
     @ApiOperation(value = "Create quote")
