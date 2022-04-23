@@ -5,7 +5,7 @@ import com.naut92.quotes.model.Quote;
 import java.util.Collection;
 
 public interface QuoteService {
-    Collection<Quote> getAllQuotesByRating();
+    Collection<Quote> getAllQuotesByTopicAndRating();
     Collection<Quote> getAllQuotesByUserId(Long id);
     Collection<Quote> getAllQuotesByTopic(String topic);
     Quote createQuote(String topic, Long userId);

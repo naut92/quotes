@@ -6,8 +6,8 @@ create table quotes (
     dislike bigint,
     like_q bigint,
     text varchar(255),
-    timestamp varchar(255),
-    --timestamp timestamp,
+    --timestamp varchar(255),
+    timestamp timestamp,
     topic varchar(255),
     user_id bigint
     );
@@ -29,21 +29,21 @@ INSERT INTO users (firstname, lastname, email) VALUES
 
 --Quotes
 INSERT INTO quotes (text, topic, like_q, dislike, timestamp, user_id) VALUES
-('text1', 'SOCIETY', 120, 4, '', 1),
-('text2', 'SOCIETY', 12, 3, '', 1),
-('text3', 'SOCIETY', 10, 2, '', 1),
-('text4', 'SOCIETY', 12, 0, '', 2),
-('text5', 'SOCIETY', 12, 10, '', 2),
-('text6', 'SOCIETY', 24, 100, '', 3),
-('text7', 'SOCIETY', 124, 16, '', 4),
+('text1', 'SOCIETY', 120, 4, '2019-06-15', 1),
+('text2', 'SOCIETY', 12, 3, '2019-06-10', 1),
+('text3', 'SOCIETY', 10, 2, '2019-07-26', 1),
+('text4', 'SOCIETY', 12, 0, '2019-06-2', 2),
+('text5', 'SOCIETY', 12, 10, '2019-06-17', 2),
+('text6', 'SOCIETY', 24, 100, '2019-06-15', 3),
+('text7', 'SOCIETY', 124, 16, '2019-06-26', 4),
 
 
-('text8', 'CULTURE', 12, 4, '', 1),
-('text9', 'CULTURE', 26, 4, '', 1),
-('text10', 'CULTURE', 130, 4, '', 2),
-('text11', 'CULTURE', 1, 4, '', 2),
-('text12', 'CULTURE', 129, 34, '', 2),
-('text13', 'CULTURE', 17, 41, '', 2),
-('text14', 'CULTURE', 22, 4, '', 3),
-('text15', 'CULTURE', 1276, 18, '', 4),
-('text16', 'CULTURE', 128, 45, '', 4);
+('text8', 'CULTURE', 12, 4, '2019-07-22', 1),
+('text9', 'CULTURE', 26, 4, '2019-07-23', 1),
+('text10', 'CULTURE', 130, 4, '2019-07-24', 2),
+('text11', 'CULTURE', 1, 4, '2019-08-27', 2),
+('text12', 'CULTURE', 129, 34, '2019-06-1', 2),
+('text13', 'CULTURE', 17, 41, '2019-08-3', 2),
+('text14', 'CULTURE', 22, 4, '2019-07-5', 3),
+('text15', 'CULTURE', 1276, 18, '2019-06-2', 4),
+('text16', 'CULTURE', 128, 45, '2019-06-12', 4);

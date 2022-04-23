@@ -30,14 +30,14 @@ public class QuoteController {
     }
 
     @ApiOperation(value = "Get quotes by rating")
-    @GetMapping("/rating")
+    @GetMapping("/topic/rating")
     public ResponseEntity<?> getQuotesByRating() {
-        Collection<Quote> quotes = service.getAllQuotesByRating();
+        Collection<Quote> quotes = service.getAllQuotesByTopicAndRating();
         return ResponseEntity.ok().body(quotes);
     }
 
     @ApiOperation(value = "Get quotes by user Id")
-    @GetMapping("/user/{userId}")
+    @GetMapping("/quotes/{userId}")
     public ResponseEntity<?> getQuotesByUserId(@PathVariable Long userId) {
         Collection<Quote> quotes = service.getAllQuotesByUserId(userId);
         return ResponseEntity.ok().body(quotes);
@@ -70,10 +70,13 @@ public class QuoteController {
     }
 
 
+    /*
     @ApiOperation(value = "Get quotes by rating")
     @GetMapping("/users")
     public ResponseEntity<?> getUsers() {
         Collection<User> quotes = userService.getAll();
         return ResponseEntity.ok().body(quotes);
     }
+
+     */
 }

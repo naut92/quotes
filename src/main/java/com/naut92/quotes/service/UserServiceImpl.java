@@ -5,8 +5,6 @@ import com.naut92.quotes.repository.UserRepository;
 import com.naut92.quotes.service.intf.UserService;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository repository;
@@ -18,10 +16,5 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user) {
         return repository.save(user);
-    }
-
-    @Override
-    public Collection<User> getAll() {
-        return repository.findAll();
     }
 }
