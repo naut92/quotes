@@ -27,7 +27,7 @@ swagger2 doc:
 http://localhost:8081/swagger-ui/index.html
 
 Docker image:
-1 ./gradlew build
-2 docker build --build-arg JAR_FILE=build/libs/\*.jar -t quotes/quotes-docker .
-3 docker-compose up
-4 docker-compose down
+1. ./gradlew build
+2. docker build --build-arg JAR_FILE=build/libs/\*.jar -t quotes/quotes-docker .
+3. docker-compose up
+4. docker-compose down
