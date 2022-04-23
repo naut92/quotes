@@ -2,11 +2,13 @@ package com.naut92.quotes.service;
 
 import com.naut92.quotes.model.Quote;
 import com.naut92.quotes.model.Topic;
+import com.naut92.quotes.model.User;
 import com.naut92.quotes.repository.QuoteRepository;
 import com.naut92.quotes.repository.UserRepository;
 import com.naut92.quotes.service.intf.QuoteService;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,12 +45,15 @@ public class QuoteServiceImpl implements QuoteService {
     }
 
     @Override
-    public Quote createQuote(String topic, Long userId) {
-        return null;
+    public Quote createQuote(Long userId, Quote quote) {
+        User user = userRepository.getById(userId);
+        quote.setUser(user);
+        quote.setTimestamp(Instant.now());
+        return repository.save(quote);
     }
 
     @Override
-    public Quote updateQuote(String topic, Long userId, Long quoteId) {
+    public Quote updateQuote(Long userId, Long quoteId) {
         return null;
     }
 

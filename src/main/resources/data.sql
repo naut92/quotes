@@ -6,7 +6,7 @@ create table quotes (
     dislike bigint,
     like_q bigint,
     text varchar(255),
-    timestamp timestamp,
+    timestamp timestamp default now(),
     topic varchar(255),
     user_id bigint
     );

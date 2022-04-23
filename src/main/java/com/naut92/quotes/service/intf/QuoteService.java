@@ -9,7 +9,7 @@ public interface QuoteService {
     Collection<Quote> getAllQuotesByTopicAndRatingBest10(Topic topic);
     Collection<Quote> getAllQuotesByUserId(Long id);
     Collection<Quote> getAllQuotesByTopic(String topic);
-    Quote createQuote(String topic, Long userId);
-    Quote updateQuote(String topic, Long userId, Long quoteId);
+    Quote createQuote(Long userId, Quote quote);
+    Quote updateQuote(Long userId, Long quoteId);
     void deleteQuote(Long userId, Long quoteId);
 }

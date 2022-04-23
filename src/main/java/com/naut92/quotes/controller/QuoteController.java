@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
@@ -56,15 +57,14 @@ public class QuoteController {
     }
 
     @ApiOperation(value = "Get all quotes by Topic")
-    @PostMapping("/{topic}/{userId}")
-    public ResponseEntity<?> createQuote(@PathVariable String topic, @PathVariable Long userId) {
-        Quote quote = service.createQuote(topic, userId);
-        return ResponseEntity.ok().body(quote);
+    @PostMapping("/topic/{userId}")
+    public ResponseEntity<?> createQuote(@PathVariable Long userId, @RequestBody Quote quote) {
+        return ResponseEntity.ok().body(service.createQuote(userId, quote));
     }
     @ApiOperation(value = "Get all quotes by Topic")
-    @PutMapping("/{topic}/{userId}/{quoteId}")
-    public ResponseEntity<?> updateQuote(@PathVariable String topic, @PathVariable Long userId, @PathVariable Long quoteId) {
-        Quote quote = service.updateQuote(topic, userId, quoteId);
+    @PutMapping("/topic/{userId}/{quoteId}")
+    public ResponseEntity<?> updateQuote(@PathVariable Long userId, @PathVariable Long quoteId) {
+        Quote quote = service.updateQuote(userId, quoteId);
         return ResponseEntity.ok().body(quote);
     }
 
