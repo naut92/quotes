@@ -1,3 +1,11 @@
+Spring Boot project
+- Jpa/Hibernate
+- Lombok
+- Swagger
+- H2
+- docker-compose
+- https://hub.docker.com/repository/docker/naut92/quotes-docker
+
 Project requirements:
 
 * source code should be published on https://github.com/
@@ -19,9 +27,12 @@ http://localhost:8081/swagger-ui/index.html
 
 Docker image:
 
-./gradlew build
+1 ./gradlew build
 
-docker build --build-arg JAR_FILE=build/libs/\*.jar -t quotes/quotes-docker .
+2 docker build --build-arg JAR_FILE=build/libs/\*.jar -t quotes/quotes-docker .
 
-docker-compose up
-docker-compose down
+3 docker-compose up
+4 docker-compose down
+
+5 docker tag quotes/quotes-docker:latest naut92/quotes-docker:latest
+docker push naut92/quotes-docker:latest
