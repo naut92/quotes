@@ -2,6 +2,8 @@ package com.naut92.quotes.controller;
 
 import com.naut92.quotes.model.Quote;
 import com.naut92.quotes.model.Topic;
+import com.naut92.quotes.model.User;
+import com.naut92.quotes.repository.UserRepository;
 import com.naut92.quotes.service.intf.QuoteService;
 import com.naut92.quotes.service.intf.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 //quotes
@@ -23,14 +26,16 @@ import java.util.Collection;
 public class QuoteController {
     private final QuoteService service;
     private final UserService userService;
+    private final UserRepository repository;
 
-    public QuoteController(QuoteService service, UserService userService) {
+    public QuoteController(QuoteService service, UserService userService, UserRepository repository) {
         this.service = service;
         this.userService = userService;
+        this.repository = repository;
     }
 
-    @ApiOperation(value = "Get quotes by rating")
-    @GetMapping("/{topic}/rating")
+    @ApiOperation(value = "Get quotes by topic")
+    @GetMapping("/{topic}")
     public ResponseEntity<?> getQuotesByRatingBest10(@PathVariable Topic topic) {
         Collection<Quote> quotes = service.getAllQuotesByTopicAndRatingBest10(topic);
         return ResponseEntity.ok().body(quotes);
@@ -69,14 +74,9 @@ public class QuoteController {
         service.deleteQuote(userId, quoteId);
     }
 
-
-    /*
-    @ApiOperation(value = "Get quotes by rating")
     @GetMapping("/users")
-    public ResponseEntity<?> getUsers() {
-        Collection<User> quotes = userService.getAll();
-        return ResponseEntity.ok().body(quotes);
+    public List<User> all(){
+        return repository.findAll();
     }
 
-     */
 }
