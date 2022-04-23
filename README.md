@@ -3,6 +3,7 @@ Spring Boot project
 - Lombok
 - Swagger
 - H2
+- flyway
 - docker-compose
 - https://hub.docker.com/repository/docker/naut92/quotes-docker
 
@@ -26,13 +27,7 @@ swagger2 doc:
 http://localhost:8081/swagger-ui/index.html
 
 Docker image:
-
 1 ./gradlew build
-
 2 docker build --build-arg JAR_FILE=build/libs/\*.jar -t quotes/quotes-docker .
-
 3 docker-compose up
 4 docker-compose down
-
-5 docker tag quotes/quotes-docker:latest naut92/quotes-docker:latest
-docker push naut92/quotes-docker:latest
