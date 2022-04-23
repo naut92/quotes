@@ -1,9 +1,11 @@
 package com.naut92.quotes.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -22,20 +24,25 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "user")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class User extends AbstractPersistable<Long> {
 
     @Column(name = "firstname")
-    private String firstname;
+    String firstname;
 
     @Column(name = "lastname")
-    private String lastname;
+    String lastname;
 
     @Column(name = "email")
     @UniqueElements(message = "*This email is used")
-    private String email;
+    String email;
 
     @JsonManagedReference
     @JoinColumn(name = "user_id")
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Quote> quotes;
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            //mappedBy = "user",
+            orphanRemoval = true)
+    List<Quote> quotes;
 }
